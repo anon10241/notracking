@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta name="keywords" content="Nothing To See Here">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Stout Standards</title>
+
+<link rel="stylesheet" href="styles.css" type="text/css"/>
+
+<style type="text/css">
+body {
+    background: #DEB887;  
+    font-size:100&#37;;
+    margin:0;
+    padding:0;
+}
+#container {
+    width: 95%;
+     min-width:990px;/*keep BG color from stopping short*/
+    background: #97694F;/*header BG color moved to here*/
+}
+#header {
+    width: 990px;
+    text-align: center;
+    margin:0 auto;/*center it up in the container div*/
+    padding: 100px 0;
+    color:#000;
+}
+#header:after { /*contain header floats and allow dropdowns to overflow past header bottom*/
+    clear:both;
+    content:"";
+    display:block;
+    height:0;
+    font-size:0;
+}
+#header img {
+    float:right;
+    border:2px solid #000;
+}
+#sidebar {
+    width: 12em;
+    font-size:40px;
+}
+#MainContent {
+    background: #FFA07A;
+    margin-left:5em;
+    margin-right:5em;
+    padding:10px 20px 0 1em;
+}
+
+/*=== Begin Nav Styles ===*/
+#nav, #nav ul {
+    float:left;
+    width:176px;/*180px total with 2px borders*/
+    margin:0;
+    padding:0;
+    list-style:none;
+    background: #D2B48C;/*for testing only, remove when done*/
+    border:2px solid #000;
+}
+#nav li {
+    position:relative;/* set containing block for AP sub ul */
+    float:left;/*kill IE whitespace bug*/
+    width:176px;
+    text-align:center;/*center the text*/
+}
+#nav li a {
+    display:block;/*use block instead of float for IE6 */
+    width:100%;/*IE needs a width*/
+    /*height:3em; remove height to allow text to wrap*/
+    padding:.65em 0;/*set padding on top and bottom to create more height*/
+    text-decoration:underline;
+    color: #000;
+    font-weight:bold;
+    font-size:1em;
+}
+#nav li span {
+    display: block;
+    height: 100px;
+    width: 200px;
+    background: url("notracking/download.gif") no-repeat center center;
+}
+/* --- Text and Bg colors on hover ---*/
+#nav li:hover,
+#nav li.sfhover { 
+    background:#333;
+    visibility:visible;/* makes IE7 think something changes on hover, fixes IE sticking dropdown */
+}
+#nav li:hover a,
+#nav li.sfhover a {color:#FFF}
+
+#nav li:hover li a,
+#nav li.sfhover li a {color:#000}
+
+#nav li li:hover a,
+#nav li li.sfhover a {background:#333; color:#FFF}
+
+/* ------ Sub UL Drop Down ------ */
+#nav ul {
+    position:absolute;
+    width:176px;
+    left:176px;
+    top:-2px;/*recover top border (use "0" without borders)*/
+    margin-left:-999em;/* hide the sub ul */
+    background: #F5DEB3;/* IE needs some sort of BG on the nested ul */
+}
+#nav li:hover ul,
+#nav li.sfhover ul {
+    margin-left:0;/* reveal the sub ul on li:hover */
+}
+
+/*=== Begin Footer ===*/
+#footer {
+    width:100%;
+    clear:both;
+}
+#footer p {
+    margin:0;
+    padding:10px 0;
+    background:#DDD;
+    text-align:center;
+    font-size:1em;
+}
+.clearfloat {
+    clear:both;
+    height:0;
+    font-size:0;
+}
+</style>
+
+<!--[if IE 6]>
+<script type="text/javascript">// the Suckerfish script inserts class=sfhover on all li inside id=nav on mouseover
+sfHover = function() {
+    var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+    for (var i=0; i<sfEls.length; i++) {
+        sfEls[i].onmouseover=function() {
+            this.className+=" sfhover";
+        }
+        sfEls[i].onmouseout=function() {
+            this.className=this.className.replace(new RegExp(" sfhover\\\\b"), "");
+        }
+    }
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>
+<![endif]-->
+</body>
+</html>
